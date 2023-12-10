@@ -19,12 +19,15 @@ int main(){
 
     SeqListInsert(&s,1,10);
     SeqListPrint(&s);
+
     //查找测试
     printf("%d\n",SeqListFind(&s,4));
     printf("%d\n",SeqListFind(&s,20));
+
     //删除测试
     SeqListPopBack(&s);
     SeqListPrint(&s);
+    
     SeqListPopFront(&s);
     SeqListPrint(&s);
 
