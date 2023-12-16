@@ -96,9 +96,7 @@ void SLTInsert(SListNode** pphead, SListNode* pos, SLTDateType x) {
 	}
 	while (plist) {
 		if (plist->next == pos) {
-			SListNode* NewNode = BuySListNode(x);
-			NewNode->next = plist->next;
-			plist->next = NewNode;
+			SListInsertAfter(plist,x);
 			return;
 		}
 		plist = plist->next;
