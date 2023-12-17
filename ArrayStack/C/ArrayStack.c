@@ -15,11 +15,12 @@ void StackPush(Stack* ps, STDataType data) {
 	assert(ps->_a);
 	if (ps->_top == ps->_capacity) {
 		ps->_capacity *= 2;
-		ps->_a = realloc(ps->_a, sizeof(STDataType) * ps->_capacity);
-		if (ps->_a == NULL) {
+		STDataType* tmp = realloc(ps->_a, sizeof(STDataType) * ps->_capacity);
+		if (tmp == NULL) {
 			perror("Push realloc fail");
 			exit(EXIT_FAILURE);
 		}
+		ps->_a = tmp;
 	}
 	ps->_a[ps->_top] = data;
 	ps->_top++;
