@@ -1,4 +1,4 @@
-#include"ArrayStack.h"
+#include"StackArray.h"
 
 int main() {
 	Stack s;
