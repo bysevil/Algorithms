@@ -1,16 +1,3 @@
-/*///////////////////////////////////////////////////////
- *
- *         ------计数排序------
- * 1. 统计出每个数出现的次数,映射到计数数组
- * 2. 从小至大遍历计数数组
- * 3. 这个数有几个，则在排序数组里添加几个这个数，为0时不添加    
- * 4. 排序数组即为排序后的数组
- *        
- * 适用: 适合范围集中的数据，只能适用整型排序
- * 空间复杂度: O(N+Range)
- * 时间复杂度: O(Range)
-/*////////////////////////////////////////////////////////
-
 #include<stdlib.h>
 #include<stdio.h>
 
@@ -56,18 +43,4 @@ void CountSort(int* nums,int numsSize){
     
     //释放空间
     free(count);
-}
-
-int main(){
-    int nums[] = {1001,1003,1009,1008,1005,1009,1001};
-    int numsSize = sizeof(nums)/sizeof(nums[0]);
-    CountSort(nums,numsSize);
-
-    //打印排序后数组
-    for(int i = 0; i < numsSize; i++){
-        printf("%d ",nums[i]);
-    }
-    printf("\n");
-
-    return 0;
 }
