@@ -1,6 +1,6 @@
 #include"main.h"
 
-// ´ÓÇ°Ğò±éÀúĞòÁĞ"ABD##E#H##CF##G##"´´½¨¶ş²æÊ÷
+// ä»å‰åºéå†åºåˆ—"ABD##E#H##CF##G##"åˆ›å»ºäºŒå‰æ ‘
 BTNode* BuyBTNode(BTDataType data) {
     BTNode* Node = malloc(sizeof(BTNode));
     assert(Node);
@@ -30,7 +30,7 @@ BTNode* BinaryTreeCreate(BTDataType* PreOrderStr, int n) {
     return _BinaryTreeCreate(PreOrderStr, n, &pi);
 }
 
-// ¶ş²æÊ÷Ïú»Ù
+// äºŒå‰æ ‘é”€æ¯
 void _BinaryTreeDestory(BTNode* Node) {
     if (Node == NULL)
         return;
@@ -44,7 +44,7 @@ void BinaryTreeDestory(BTNode** root) {
     *root = NULL;
 }
 
-// ¶ş²æÊ÷½ÚµãÊı
+// äºŒå‰æ ‘èŠ‚ç‚¹æ•°
 int BinaryTreeSize(BTNode* root) {
     if (root == NULL) {
         return 0;
@@ -52,7 +52,7 @@ int BinaryTreeSize(BTNode* root) {
     return BinaryTreeSize(root->_left) + BinaryTreeSize(root->_right) + 1;
 }
 
-// ¶ş²æÊ÷Ò¶×ÓÊı
+// äºŒå‰æ ‘å¶å­æ•°
 int BinaryTreeLeafSize(BTNode* root) {
     if (root == NULL) 
         return 0;
@@ -64,7 +64,7 @@ int BinaryTreeLeafSize(BTNode* root) {
     return BinaryTreeLeafSize(root->_left) + BinaryTreeLeafSize(root->_right);
 }
 
-// ¶ş²æÊ÷k²ãµÄ½ÚµãÊı
+// äºŒå‰æ ‘kå±‚çš„èŠ‚ç‚¹æ•°
 int BinaryTreeLevelKSize(BTNode* root, int k) {
     if (root == NULL)
         return 0;
@@ -73,7 +73,7 @@ int BinaryTreeLevelKSize(BTNode* root, int k) {
 
     return BinaryTreeLevelKSize( root->_left, k-1) + BinaryTreeLevelKSize(root->_right, k - 1);
 }
-// ¶ş²æÊ÷²éÕÒ½Úµã
+// äºŒå‰æ ‘æŸ¥æ‰¾èŠ‚ç‚¹
 BTNode* BinaryTreeFind(BTNode* root, BTDataType x) {
     if (root == NULL)
         return NULL;
@@ -87,7 +87,7 @@ BTNode* BinaryTreeFind(BTNode* root, BTDataType x) {
     return BinaryTreeFind(root->_right, x);
 }
 
-// ¶ş²æÊ÷Ç°Ğò±éÀú
+// äºŒå‰æ ‘å‰åºéå†
 void _BinaryTreePrevOrder(BTNode* Node) {
     if (Node == NULL) 
         return;
@@ -102,7 +102,7 @@ void BinaryTreePrevOrder(BTNode* root) {
     printf("\n");
 }
 
-// ¶ş²æÊ÷ÖĞĞò±éÀú
+// äºŒå‰æ ‘ä¸­åºéå†
 void _BinaryTreeInOrder(BTNode* Node) {
     if (Node == NULL) 
         return;
@@ -117,7 +117,7 @@ void BinaryTreeInOrder(BTNode* root) {
     printf("\n");
 }
 
-// ¶ş²æÊ÷ºóĞò±éÀú
+// äºŒå‰æ ‘ååºéå†
 void _BinaryTreePostOrder(BTNode* Node) {
     if (Node == NULL) 
         return;
@@ -132,7 +132,7 @@ void BinaryTreePostOrder(BTNode* root) {
     printf("\n");
 }
 
-// ¶ş²æÊ÷²ãĞò±éÀú
+// äºŒå‰æ ‘å±‚åºéå†
 void BinaryTreeLevelOrder(BTNode* root){
     Queue* Q = QueueCreate(root);
     while(!QueueEmpty(Q)){
@@ -146,7 +146,7 @@ void BinaryTreeLevelOrder(BTNode* root){
     printf("\n");
 }
 
-// ¶ş²æÊ÷Éî¶È
+// äºŒå‰æ ‘æ·±åº¦
 int BinaryTreeDepth(BTNode*root){
     if(root == NULL)
         return 0;
@@ -156,7 +156,7 @@ int BinaryTreeDepth(BTNode*root){
     return left > right ? left + 1 : right + 1;
 }
 
-// ÍêÈ«¶ş²æÊ÷ÅĞ¶Ï
+// å®Œå…¨äºŒå‰æ ‘åˆ¤æ–­
 bool BinaryTreeComplete(BTNode* root){
     Queue* Q = QueueCreate(root);
     while(!QueueEmpty(Q)){
