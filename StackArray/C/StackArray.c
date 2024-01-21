@@ -1,4 +1,4 @@
-#include"ArrayStack.h"
+#include"StackArray.h"
 // 初始化栈 
 void StackInit(Stack* ps) {
 	ps->_a = malloc(sizeof(STDataType) * 4);
