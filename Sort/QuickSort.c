@@ -79,9 +79,56 @@ void QuickSortNonR(int* nums, int left, int right){
         }
     }
 }
+// 随机选key和三路划分优化最差情况
+void swap(int* a, int* b){
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+void MidKey(int* nums, int left, int right){
+	int mid = left + rand() % (right - left);
+	if(nums[left] < nums[mid]){
+		if(nums[mid] < nums[right])//left < mid < right
+			swap(nums+left,nums+mid);
+		if(nums[right] > nums[left])
+			swap(nums+left,nums+mid);//left < right < mid
+			
+	}
+	if(nums[left] > nums[mid]){
+		if(nums[mid] > nums[right])
+			swap(nums+left,nums+mid);//right < mid < left
+		if(nums[left] > nums[right])
+			swap(nums+left,nums+right);//mid < right < left
+	}
+}
 
-int main(){
-    int nums[] = {5,2,1,0};
-    QuickSort(nums,0,sizeof(nums)/sizeof(nums[0]));
-    return 0;
+void QuickSort(int* nums,int begin,int end){
+    if(begin >= end - 1)
+        return;
+    MidKey(nums,begin,end-1);
+
+    int key = nums[begin];
+    int left = begin, right = end - 1;
+    int cur = left + 1;
+    while(cur <= right){
+        if(nums[cur] < key){
+            swap(nums+cur, nums+left);
+            left++;
+            cur++;
+        }
+        else if(nums[cur] > key){
+            swap(nums+cur,nums+right);
+            right--;
+        }else{
+            cur++;
+        }
+    }
+    QuickSort(nums,begin,left);
+    QuickSort(nums,right+1,end);
+} 
+
+int* sortArray(int* nums, int numsSize, int* returnSize) {
+    QuickSort(nums,0,numsSize);
+    *returnSize = numsSize;
+    return nums;
 }
